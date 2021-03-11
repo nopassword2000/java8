@@ -44,7 +44,14 @@ public class StreamDemo {
         people.forEach(System.out::println);
         System.out.println("----------------------------------------------------------");
 
-        personList.stream().filter(distinctByKey(x->x.getAge())).forEach(System.out::println);
+        //personList.stream().filter(distinctByKey(x->x.getAge())).forEach(System.out::println);
+        personList.stream().filter( (x)-> {
+/*            return (y) -> {
+                Map<Object,Boolean> seen = new ConcurrentHashMap<>();
+                return t -> seen.putIfAbsent(y.apply(t), Boolean.TRUE) == null;
+            };*/
+          return true;
+        }).forEach(System.out::println);
         System.out.println("----------------------------------------------------------");
 
 
